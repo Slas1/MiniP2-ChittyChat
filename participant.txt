@@ -1,0 +1,41 @@
+Participant.go
+
+package main
+
+import (
+	"log"
+
+	"google.golang.org/grpc"
+)
+
+func main() {
+	var conn *grpc.ClientConn
+	conn, err := grpc.Dial(":8080", grpc.WithInsecure())
+	if err != nil {
+		log.Fatalf("could not conect: %s", err)
+	}
+
+	defer conn.Close()
+
+	c := 0 //courseMicroService.NewCourseServiceClient(conn)
+
+	postBCReq := courseMicroService.GetCoursesRequest{Message: "Give me courses"}
+	joinSerReq := courseMicroService.PostCourseRequest{Course: &course}
+	leaveSerReq := courseMicroService.GetCourseByIDRequest{ID: "5"}
+
+	postBroadCast(c, postBCReq)
+	joinServer(c, joinSerReq)
+	leaveServer(c, leaveSerReq)
+}
+
+func postBroadCast() {
+
+}
+
+func joinServer() {
+
+}
+
+func leaveServer() {
+
+}
