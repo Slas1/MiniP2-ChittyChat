@@ -18,6 +18,7 @@ message Message {
     string sender = 1;
     Channel channel = 2;
     string message = 3;
+    int32 time = 4;
 }
 
 message MessageAck {
