@@ -1,0 +1,24 @@
+syntax = "proto3";
+package chittyChat;
+
+option go_package = "./chittyChat";
+
+service ChittyChat {
+    rpc JoinChannel(Channel) returns (stream Message){}
+    rpc SendMessage(stream Message) returns (MessageAck){}
+}
+
+message Channel {
+    string name = 1;
+    string senders_name = 2;
+}
+
+message Message {
+    string sender = 1;
+    Channel channel = 2;
+    string message = 3;
+}
+
+message MessageAck {
+    string status = 1;
+}
