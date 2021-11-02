@@ -10,6 +10,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"sync"
 
 	"github.com/thecodeteam/goodbye"
 	"google.golang.org/grpc"
@@ -18,7 +19,35 @@ import (
 var channelName = flag.String("channel", "default", "Channel name")
 var senderName = flag.String("sender", "default", "Sender name")
 var tcpServer = flag.String("server", ":8080", "TCP server")
-var LampartTime int32
+var LamportTime lamportTime
+
+type lamportTime struct {
+	time int
+	*sync.Mutex
+}
+
+func (lt *lamportTime) max(otherValue int) int {
+	if lt.time > otherValue {
+		return lt.time
+	}
+	return otherValue
+}
+
+func (lt *lamportTime) update(otherValue int) {
+	lt.Lock()
+
+	lt.time = lt.max(otherValue) + 1
+
+	lt.Unlock()
+}
+
+func (lt *lamportTime) incrementWithOne() {
+	lt.Lock()
+
+	lt.time++
+
+	lt.Unlock()
+}
 
 func joinChannel(ctx context.Context, client chittyChatpb.ChittyChatClient) {
 
@@ -29,7 +58,7 @@ func joinChannel(ctx context.Context, client chittyChatpb.ChittyChatClient) {
 	}
 
 	fmt.Printf("Joined channel: %v \n", *channelName)
-	sendMessage(ctx, client, "Participant"+*senderName+" joined Chitty-Chat at Lamport time "+strconv.Itoa(int(LampartTime)))
+	sendMessage(ctx, client, "Participant "+*senderName+" joined Chitty-Chat")
 
 	waitc := make(chan struct{})
 
@@ -44,12 +73,9 @@ func joinChannel(ctx context.Context, client chittyChatpb.ChittyChatClient) {
 			if err != nil {
 				log.Fatalf("Failed to recieve message: %v \n", err)
 			}
-			if in.Time >= LampartTime {
-				LampartTime = in.Time
-			}
-			LampartTime++
+			LamportTime.update(int(in.Time))
 
-			fmt.Printf("(%v): %v \n", in.Sender, in.Message)
+			fmt.Printf("(%v): %v - Lamport time: "+strconv.Itoa(LamportTime.time)+"\n", in.Sender, in.Message)
 		}
 
 	}()
@@ -62,21 +88,20 @@ func sendMessage(ctx context.Context, client chittyChatpb.ChittyChatClient, mess
 	if err != nil {
 		log.Printf("Cant send message: %v", err)
 	}
-	LampartTime++
-	msg := chittyChatpb.Message{
-		Channel: &chittyChatpb.Channel{
-			Name:        *channelName,
-			SendersName: *senderName,
-		},
-		Message: message,
-		Time:    LampartTime,
-		Sender:  *senderName,
-	}
-	stream.Send(&msg)
+	LamportTime.incrementWithOne()
 
-	ack, err := stream.CloseAndRecv()
-	ack.GetStatus()
-	//fmt.Printf("Message sent: %v \n", ack)
+		msg := chittyChatpb.Message{
+			Channel: &chittyChatpb.Channel{
+				Name:        *channelName,
+				SendersName: *senderName,
+			},
+			Message: message,
+			Time:    int32(LamportTime.time),
+			Sender:  *senderName,
+		}
+		stream.Send(&msg)
+
+	stream.CloseAndRecv()
 }
 
 func clearCurrentLine() {
@@ -84,6 +109,7 @@ func clearCurrentLine() {
 }
 
 func main() {
+	LamportTime = lamportTime{0, new(sync.Mutex)}
 
 	flag.Parse()
 
@@ -100,11 +126,9 @@ func main() {
 
 	defer goodbye.Exit(ctx, -1)
 	goodbye.Notify(ctx)
-	//goodbye.RegisterWithPriority(func(ctx context.Context, sig os.Signal) { fmt.Printf("1: Test1 %[1]s\n", sig) }, 0)
 	goodbye.RegisterWithPriority(func(ctx context.Context, sig os.Signal) {
-		sendMessage(ctx, client, "Participant"+*senderName+" left Chitty-Chat at Lamport time "+strconv.Itoa(int(LampartTime+1)))
+		sendMessage(ctx, client, "Participant "+*senderName+" left Chitty-Chat")
 	}, 1)
-	//goodbye.RegisterWithPriority(func(ctx context.Context, sig os.Signal) { fmt.Printf("2: Test2 %[1]s\n", sig) }, 2)
 	goodbye.RegisterWithPriority(func(ctx context.Context, sig os.Signal) { conn.Close() }, 5)
 
 	go joinChannel(ctx, client)
