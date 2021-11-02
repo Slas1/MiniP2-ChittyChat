@@ -90,16 +90,16 @@ func sendMessage(ctx context.Context, client chittyChatpb.ChittyChatClient, mess
 	}
 	LamportTime.incrementWithOne()
 
-		msg := chittyChatpb.Message{
-			Channel: &chittyChatpb.Channel{
-				Name:        *channelName,
-				SendersName: *senderName,
-			},
-			Message: message,
-			Time:    int32(LamportTime.time),
-			Sender:  *senderName,
-		}
-		stream.Send(&msg)
+	msg := chittyChatpb.Message{
+		Channel: &chittyChatpb.Channel{
+			Name:        *channelName,
+			SendersName: *senderName,
+		},
+		Message: message,
+		Time:    int32(LamportTime.time),
+		Sender:  *senderName,
+	}
+	stream.Send(&msg)
 
 	stream.CloseAndRecv()
 }
@@ -135,7 +135,12 @@ func main() {
 
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
-		go sendMessage(ctx, client, scanner.Text())
+		if len(scanner.Text()) > 1 && len(scanner.Text()) < 128 {
+			go sendMessage(ctx, client, scanner.Text())
+		} else {
+			fmt.Println("Message has to be between 1 and 128 chars")
+			continue
+		}
 		clearCurrentLine()
 
 	}
