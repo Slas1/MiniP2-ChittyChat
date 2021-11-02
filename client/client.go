@@ -74,7 +74,7 @@ func joinChannel(ctx context.Context, client chittyChatpb.ChittyChatClient) {
 				log.Fatalf("Failed to recieve message: %v \n", err)
 			}
 			LamportTime.update(int(in.Time))
-
+			log.Printf("I %v got message: %v \n", *senderName, in)
 			fmt.Printf("(%v): %v - Lamport time: "+strconv.Itoa(LamportTime.time)+"\n", in.Sender, in.Message)
 		}
 
@@ -99,6 +99,7 @@ func sendMessage(ctx context.Context, client chittyChatpb.ChittyChatClient, mess
 		Time:    int32(LamportTime.time),
 		Sender:  *senderName,
 	}
+	log.Printf("I %v sent a message: %v \n", *senderName,&msg)
 	stream.Send(&msg)
 
 	stream.CloseAndRecv()
@@ -109,6 +110,16 @@ func clearCurrentLine() {
 }
 
 func main() {
+	LOG_FILE := "./logfile"
+	logFile, err := os.OpenFile(LOG_FILE, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0644)
+    if err != nil {
+        log.Panic(err)
+    }
+
+    // Set log out put and enjoy :)
+    log.SetOutput(logFile)
+	log.SetFlags(log.Lmicroseconds)
+
 	LamportTime = lamportTime{0, new(sync.Mutex)}
 
 	flag.Parse()
@@ -130,12 +141,13 @@ func main() {
 		sendMessage(ctx, client, "Participant "+*senderName+" left Chitty-Chat")
 	}, 1)
 	goodbye.RegisterWithPriority(func(ctx context.Context, sig os.Signal) { conn.Close() }, 5)
+	goodbye.RegisterWithPriority(func(ctx context.Context, sig os.Signal) { logFile.Close() }, 4)
 
 	go joinChannel(ctx, client)
 
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
-		if len(scanner.Text()) > 1 && len(scanner.Text()) < 128 {
+		if len(scanner.Text()) > 0 && len(scanner.Text()) < 128 {
 			go sendMessage(ctx, client, scanner.Text())
 		} else {
 			fmt.Println("Message has to be between 1 and 128 chars")

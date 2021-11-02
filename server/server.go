@@ -7,6 +7,7 @@ import (
 	"net"
 	"sync"
 	"time"
+	"os"
 
 	"chittyChatpb/chittyChatpb"
 
@@ -109,7 +110,17 @@ func newServer() *chittyChatServer {
 }
 
 func main() {
+	LOG_FILE := "./logfile"
+	logFile, err := os.OpenFile(LOG_FILE, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0644)
+    if err != nil {
+        log.Panic(err)
+    }
+	defer logFile.Close()
+
+    // Set log out put and enjoy :)
+    log.SetOutput(logFile)
 	log.SetFlags(log.Lmicroseconds)
+
 	lis, err := net.Listen("tcp", "localhost:8080")
 
 	if err != nil {
