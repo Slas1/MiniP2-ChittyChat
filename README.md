@@ -1,5 +1,11 @@
 # MiniP2-ChittyChat
 
+## How to use (Target: TA)
+Start server by typing: "go run server.go" in a terminal while in the server folder
+
+Start client by typing: "go run client.go -sender #####" in a terminal while in the client folder.
+Where ##### is the name for that client. There is a option to specify which channel to join by typing -channel ###, where ### is the name of the channel.
+
 ## Description
 
 You have to implement Chitty-Chat a distributed system, that is providing a chatting service, and keeps track of logical time using Lamport Timestamps.

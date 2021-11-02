@@ -1,0 +1,75 @@
+13:21:17.952220 I Karsten sent a message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten joined Chitty-Chat" time:1 
+13:21:17.959038 Server got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten joined Chitty-Chat" time:1 
+13:21:17.960980 Server broadcasted a message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten joined Chitty-Chat" time:3 
+13:21:17.965970 I Karsten got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten joined Chitty-Chat" time:3 
+13:21:19.607880 I Knud sent a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:1 
+13:21:19.611369 Server got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:1 
+13:21:19.612374 Server broadcasted a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:5 
+13:21:19.616008 I Karsten got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:5 
+13:21:43.490610 I Karen sent a message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen joined Chitty-Chat" time:1 
+13:21:43.491906 Server got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen joined Chitty-Chat" time:1 
+13:21:43.491906 Server broadcasted a message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen joined Chitty-Chat" time:7 
+13:21:43.492609 I Karsten got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen joined Chitty-Chat" time:7 
+13:21:43.493120 I Karen got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen joined Chitty-Chat" time:7 
+13:21:43.498134 I Knud got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen joined Chitty-Chat" time:7 
+13:21:55.557695 I Knud sent a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:9 
+13:21:55.566854 Server got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:9 
+13:21:55.566854 Server broadcasted a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:11 
+13:21:55.566854 I Karen got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:11 
+13:21:55.566854 I Karsten got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:11 
+13:21:55.567485 I Knud got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:11 
+13:22:00.328239 I Knud sent a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:1 
+13:22:00.332786 Server got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:1 
+13:22:00.333295 Server broadcasted a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:13 
+13:22:00.341308 I Knud got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:13 
+13:22:00.349616 I Karsten got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:13 
+13:22:00.349616 I Karen got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud joined Chitty-Chat" time:13 SSS
+13:22:12.384839 I Karsten sent a message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Hej alle k'er" time:15 
+13:22:12.386321 Server got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Hej alle k'er" time:15 
+13:22:12.386321 Server broadcasted a message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Hej alle k'er" time:17 
+13:22:12.387243 I Knud got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Hej alle k'er" time:17 
+13:22:12.387243 I Karen got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Hej alle k'er" time:17 
+13:22:12.387755 I Karsten got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Hej alle k'er" time:17 
+13:22:24.368707 I Knud sent a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Hej Karsten" time:19 
+13:22:24.369240 Server got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Hej Karsten" time:19 
+13:22:24.369240 Server broadcasted a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Hej Karsten" time:21 
+13:22:24.370142 I Karsten got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Hej Karsten" time:21 
+13:22:24.370142 I Knud got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Hej Karsten" time:21 
+13:22:24.370142 I Karen got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Hej Karsten" time:21 
+13:22:44.390526 I Karen sent a message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"I wanna talk to the manager" time:23 
+13:22:44.391037 Server got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"I wanna talk to the manager" time:23 
+13:22:44.391037 Server broadcasted a message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"I wanna talk to the manager" time:25 
+13:22:44.391326 I Karen got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"I wanna talk to the manager" time:25 
+13:22:44.391837 I Knud got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"I wanna talk to the manager" time:25 
+13:22:44.391837 I Karsten got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"I wanna talk to the manager" time:25 
+13:23:20.084185 I Karsten denied a message, due to it being to long or no message at all. 
+13:23:36.676752 I Karsten sent a message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Kost" time:27 
+13:23:36.677325 Server got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Kost" time:27 
+13:23:36.677325 Server broadcasted a message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Kost" time:29 
+13:23:36.677833 I Karsten got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Kost" time:29 
+13:23:36.677982 I Knud got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Kost" time:29 
+13:23:36.677982 I Karen got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Kost" time:29 
+13:23:43.046528 I Knud sent a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Enig kost" time:31 
+13:23:43.047110 Server got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Enig kost" time:31 
+13:23:43.047110 Server broadcasted a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Enig kost" time:33 
+13:23:43.047619 I Knud got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Enig kost" time:33 
+13:23:43.048209 I Karsten got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Enig kost" time:33 
+13:23:43.048209 I Karen got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Enig kost" time:33 
+13:23:47.118079 I Karsten sent a message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten left Chitty-Chat" time:35 
+13:23:47.125076 Server got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten left Chitty-Chat" time:35 
+13:23:47.125076 Server broadcasted a message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten left Chitty-Chat" time:37 
+13:23:47.126334 I Knud got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten left Chitty-Chat" time:37 
+13:23:47.126334 I Karen got message: sender:"Karsten" channel:{name:"default" senders_name:"Karsten"} message:"Participant Karsten left Chitty-Chat" time:37 
+13:23:51.586902 I Knud sent a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:39 
+13:23:51.592804 Server got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:39 
+13:23:51.592804 Server broadcasted a message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:41 
+13:23:51.592804 I Karen got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:41 
+13:23:51.592804 I Knud got message: sender:"Knud" channel:{name:"default" senders_name:"Knud"} message:"Participant Knud left Chitty-Chat" time:41 
+13:24:32.222507 I Karen sent a message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"GIV MIG EN MANAGER! - Karen døde derefter af stress - the end" time:43 
+13:24:32.222900 Server got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"GIV MIG EN MANAGER! - Karen døde derefter af stress - the end" time:43 
+13:24:32.222900 Server broadcasted a message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"GIV MIG EN MANAGER! - Karen døde derefter af stress - the end" time:45 
+13:24:32.223530 I Karen got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"GIV MIG EN MANAGER! - Karen døde derefter af stress - the end" time:45 
+13:24:33.486439 I Karen sent a message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen left Chitty-Chat" time:47 
+13:24:33.493415 Server got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen left Chitty-Chat" time:47 
+13:24:33.493927 Server broadcasted a message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen left Chitty-Chat" time:49 
+13:24:33.494183 I Karen got message: sender:"Karen" channel:{name:"default" senders_name:"Karen"} message:"Participant Karen left Chitty-Chat" time:49 

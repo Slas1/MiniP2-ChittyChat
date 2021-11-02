@@ -150,6 +150,7 @@ func main() {
 		if len(scanner.Text()) > 0 && len(scanner.Text()) < 128 {
 			go sendMessage(ctx, client, scanner.Text())
 		} else {
+			log.Printf("I %v denied a message, due to it being to long or no message at all. \n", *senderName)
 			fmt.Println("Message has to be between 1 and 128 chars")
 			continue
 		}
