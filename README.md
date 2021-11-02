@@ -5,7 +5,7 @@
 
 1. Start client by typing: "go run client.go -sender #####" in a terminal while in the client folder. Where ##### is the name for that client. There is a option to specify which channel to join by typing -channel ###, where ### is the name of the channel.
 
-1. You can now communicate with other clients by typing in the terminal.
+1. You can now communicate with other clients by typing in a client terminal.
 
 ## Description
 
